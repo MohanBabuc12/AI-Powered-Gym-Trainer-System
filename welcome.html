@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Welcome - Fitness Gym</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Open+Sans&display=swap" rel="stylesheet">
+
+<style>
+  /* Reset */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  body, html {
+    margin: 0; padding: 0; height: 100%;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #121921;
+    color: #d1d5db;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  /* Background image with gradient overlay */
+  .bg-image {
+    position: fixed;
+    inset: 0;
+    background:
+      linear-gradient(135deg, rgba(52,168,83,0.7), rgba(0,0,0,0.7)),
+      url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+    filter: brightness(0.8);
+    z-index: -2;
+  }
+
+  /* Particle background */
+  .particles {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+  }
+  .particle {
+    position: absolute;
+    background-color: rgba(52,168,83,0.15);
+    border-radius: 50%;
+    animation: floatUp 15s linear infinite;
+    opacity: 0.7;
+  }
+  @keyframes floatUp {
+    0% {
+      transform: translateY(100vh) scale(0.5);
+      opacity: 0;
+    }
+    50% {
+      opacity: 0.7;
+    }
+    100% {
+      transform: translateY(-10vh) scale(1);
+      opacity: 0;
+    }
+  }
+
+  /* Container for welcome content */
+  .welcome-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 25px;
+    text-align: center;
+    animation: fadeInUp 2s ease forwards;
+    opacity: 0;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 4.5rem;
+    font-weight: 900;
+    margin-bottom: 15px;
+    color: #34a853;
+    text-shadow: 0 0 15px #34a853bb;
+    letter-spacing: 2px;
+  }
+
+  p {
+    font-size: 1.4rem;
+    margin-bottom: 50px;
+    color: #cbd5e1;
+    max-width: 600px;
+    line-height: 1.6;
+    font-weight: 600;
+    text-shadow: 0 0 8px rgba(0,0,0,0.3);
+  }
+
+  /* Big green button */
+  .enter-btn {
+    background-color: #34a853;
+    color: white;
+    padding: 20px 70px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    border-radius: 16px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 8px 35px rgba(52,168,83,0.85);
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    display: inline-block;
+  }
+  .enter-btn:hover, .enter-btn:focus {
+    background-color: #2c9c46;
+    box-shadow: 0 12px 50px rgba(44,156,70,0.95);
+    transform: scale(1.1);
+    outline: none;
+  }
+
+  /* Login link below button */
+  .login-link {
+    margin-top: 28px;
+    font-size: 1.2rem;
+    color: #94a3b8;
+    font-weight: 600;
+  }
+  .login-link a {
+    color: #34a853;
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    margin-left: 6px;
+  }
+  .login-link a:hover {
+    color: #2c9c46;
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    h1 {
+      font-size: 3.2rem;
+    }
+    p {
+      font-size: 1.1rem;
+    }
+    .enter-btn {
+      padding: 16px 50px;
+      font-size: 1.2rem;
+    }
+    .login-link {
+      font-size: 1rem;
+    }
+  }
+
+  /* SVG wave shape bottom */
+  .wave {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    pointer-events: none;
+    z-index: 1;
+  }
+</style>
+</head>
+<body>
+
+<div class="bg-image"></div>
+
+<div class="particles" aria-hidden="true">
+  <!-- Randomly generate 15 particles with inline styles -->
+  <div class="particle" style="width:8px; height:8px; left: 10%; animation-delay: 0s;"></div>
+  <div class="particle" style="width:12px; height:12px; left: 25%; animation-delay: 3s;"></div>
+  <div class="particle" style="width:6px; height:6px; left: 35%; animation-delay: 5s;"></div>
+  <div class="particle" style="width:10px; height:10px; left: 45%; animation-delay: 7s;"></div>
+  <div class="particle" style="width:9px; height:9px; left: 55%; animation-delay: 9s;"></div>
+  <div class="particle" style="width:7px; height:7px; left: 65%; animation-delay: 11s;"></div>
+  <div class="particle" style="width:11px; height:11px; left: 75%; animation-delay: 13s;"></div>
+  <div class="particle" style="width:5px; height:5px; left: 85%; animation-delay: 15s;"></div>
+  <div class="particle" style="width:10px; height:10px; left: 95%; animation-delay: 18s;"></div>
+  <div class="particle" style="width:6px; height:6px; left: 15%; animation-delay: 20s;"></div>
+  <div class="particle" style="width:8px; height:8px; left: 30%; animation-delay: 22s;"></div>
+  <div class="particle" style="width:7px; height:7px; left: 50%; animation-delay: 24s;"></div>
+  <div class="particle" style="width:9px; height:9px; left: 60%; animation-delay: 26s;"></div>
+  <div class="particle" style="width:6px; height:6px; left: 80%; animation-delay: 28s;"></div>
+  <div class="particle" style="width:5px; height:5px; left: 90%; animation-delay: 30s;"></div>
+</div>
+
+<div class="welcome-container" role="main" aria-label="Welcome to Fitness Gym homepage">
+  <h1>Welcome to Ai Fitness Coach</h1>
+  <p>Your journey to strength and wellness starts here. Join us and transform your life today.</p>
+  <a href="HOME.html" class="enter-btn" aria-label="Enter the Fitness Gym website">Enter Site</a>
+  <div class="login-link">
+    Already a member? <a href="login.php" aria-label="Login to your account">Login here</a>
+  </div>
+</div>
+
+<!-- SVG Wave Bottom -->
+<svg class="wave" viewBox="0 0 1440 100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" aria-hidden="true">
+  <path fill="#121921" fill-opacity="1" d="M0,64L40,74.7C80,85

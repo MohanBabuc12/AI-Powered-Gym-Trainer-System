@@ -1,0 +1,33 @@
+# Exclude research papers and non-project content
+Paper/
+
+# Exclude large media and temporary files
+Videos and photos/
+gifs/
+static/gifss/
+images/*.psd
+*.mp4
+*.avi
+*.mov
+*.mkv
+
+# Python caches
+__pycache__/
+*.pyc
+*.pyo
+
+# IDE/Editor files
+.vscode/
+*.code-workspace
+
+# Logs and temp
+*.log
+tempCodeRunnerFile.py
+
+# Model weights (optional, uncomment to exclude if you don't want to push)
+# best.pt
+# nano weights.pt
+
+# Node modules or vendor (if any)
+node_modules/
+vendor/

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Gym Beginners Guide - Stride Sync</title>
+    <style>
+        body {
+            background: #1f2937;
+            color: #e4e4e4;
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            background-color: #212121;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .navbar-brand .logo {
+            max-width: 60px;
+            border-radius: 10px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: #ecf0f1;
+            margin-top: 40px;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .content-section {
+            margin-top: 30px;
+            background-color: #1d1d1d;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        h3 {
+            color: #ecf0f1;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        p {
+            color: #d1d1d1;
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        .gif-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+
+        .gif-container img {
+            max-width: 400px;  /* Set max width to ensure uniform size */
+            height: 225px;     /* Set fixed height for uniformity */
+            object-fit: cover; /* Ensures images maintain aspect ratio and cover the area */
+            border-radius: 10px;
+            margin-top: 15px;
+            border: 3px solid #16a085;
+        }
+
+        .btn-back {
+            margin-top: 30px;
+            display: block;
+            text-align: center;
+            background-color: #16a085;
+            color: white;
+            padding: 12px 40px;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            width: 300px;
+            margin: 0 auto;
+        }
+
+        .btn-back:hover {
+            background-color: #1abc9c;
+            transform: scale(1.05);
+        }
+
+        footer {
+            background-color: #212121;
+            color: #ecf0f1;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        footer a {
+            color: #ecf0f1;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .accordion-item {
+            margin-bottom: 15px;
+            background-color: #232323;
+            border-radius: 10px;
+            border: 1px solid #333;
+        }
+
+        .accordion-button {
+            background-color: #333;
+            color: white;
+            font-weight: bold;
+        }
+
+        .accordion-button:hover {
+            background-color: #16a085;
+        }
+
+        .accordion-body {
+            background-color: #1f1f1f;
+            color: #ecf0f1;
+        }
+
+        .section-heading {
+            font-size: 2rem;
+            color: #ecf0f1;
+            margin-top: 30px;
+        }
+
+        .section-heading span {
+            color: #16a085;
+        }
+
+        .accordion-button:focus {
+            box-shadow: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="images/icon.jpg" alt="Logo" class="logo">
+                <span>Stride Sync</span>
+            </a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Welcome to Stride Sync</h1>
+        <h2>Beginner's Gym Guide</h2>
+        <!-- Platform Info Section -->
+        <div class="content-section">
+            <h3 class="section-heading">Explore Our Platform</h3>
+            <p>Stride Sync is more than a gym assistant — it's your AI-powered fitness companion. Here's what you can do on this platform:</p>
+
+            <ul>
+                <li><strong>Workout Logging:</strong> Record your daily exercises, reps, and weights.</li>
+                <li><strong>Progress Tracker:</strong> Visualize your BMI, weight, and fitness journey.</li>
+                <li><strong>Streak System:</strong> Keep your workout streak alive and earn achievement badges.</li>
+                <li><strong>Badges & Achievements:</strong> Unlock milestones like 3-day, 7-day, 30-day streaks.</li>
+                <li><strong>Personalized Tips:</strong> Use the AI guide (coming soon) for suggestions & motivation.</li>
+                <li><strong>Secure Login:</strong> Your data is protected and personal.</li>
+            </ul>
+
+            <p>Whether you're a student, a working professional, or just starting out — Stride Sync adapts to your pace and helps you stay consistent.</p>
+        </div>
+
+        <div class="content-section">
+            <h3 class="section-heading">How to Use the Platform</h3>
+            <ol>
+                <li><strong>Login:</strong> Use your credentials to access your personalized dashboard.</li>
+                <li><strong>Log a Workout:</strong> Visit the workout log page and fill in your exercises.</li>
+                <li><strong>Track Progress:</strong> View graphs and your streak status.</li>
+                <li><strong>Earn Badges:</strong> As you complete streaks, badges will automatically update.</li>
+                <li><strong>Need Help?</strong> Come back to this page or contact our team.</li>
+            </ol>
+        </div>
+
+        <div class="accordion" id="helpAccordion">
+            <!-- Section 1: Introduction to Gym -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <i class="fas fa-dumbbell"></i> Getting Started at the Gym
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#helpAccordion">
+                    <div class="accordion-body">
+                        <p>As a beginner, it's important to know how to properly set up your workout routine and make the most out of your gym time. Here are some tips:</p>
+                        <ul>
+                            <li><strong>Start Slow:</strong> Don’t rush. Begin with simple exercises, focusing on proper form rather than lifting heavy weights.</li>
+                            <li><strong>Warm Up & Stretch:</strong> Always start with a warm-up like light cardio and dynamic stretches to prepare your muscles for exercise.</li>
+                            <li><strong>Stay Consistent:</strong> Aim to exercise 3-4 times per week to start, gradually increasing intensity as you get stronger.</li>
+                            <li><strong>Hydrate:</strong> Drink plenty of water before, during, and after your workout to stay hydrated.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 2: How to Perform Basic Exercises -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        <i class="fas fa-running"></i> How to Perform Exercises
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#helpAccordion">
+                    <div class="accordion-body">
+                        <p>Performing exercises with proper form is crucial to prevent injury and maximize your results. Below are some basic exercises to start with:</p>
+
+                        <!-- Push-Up -->
+                        <h4 class="section-heading"><span>Push-Ups</span></h4>
+                        <div class="gif-container">
+                            <img src="https://fitnessprogramer.com/wp-content/uploads/2021/06/Push-Up-Plus.gif" alt="Push-Ups Exercise GIF">
+                            <p>Keep your body straight as you lower yourself down. Push back up to the starting position.</p>
+                        </div>
+
+                        <!-- Squats -->
+                        <h4 class="section-heading"><span>Squats</span></h4>
+                        <div class="gif-container">
+                            <img src="https://www.fitundattraktiv.de/wp-content/uploads/2017/08/grosser_gesaessmuskel_trainieren-kniebeuge.gif" alt="Squats Exercise GIF">
+                            <p>Stand with feet shoulder-width apart. Lower your body by bending your knees, keeping your back straight and chest up.</p>
+                        </div>
+
+                        <!-- Dumbbell Lateral Raise -->
+                        <h4 class="section-heading"><span>Dumbbell Lateral Raise</span></h4>
+                        <div class="gif-container">
+                            <img src="https://www.aesthetics-blog.com/wp-content/uploads/2019/07/03341301-Dumbbell-Lateral-Raise_shoulder-AFIX_720.gif" alt="Dumbbell Lateral Raise Exercise GIF">
+                            <p>Hold the dumbbells at your sides and raise them out to the side until they reach shoulder height.</p>
+                        </div>
+
+                        <!-- Alternative Dumbbell Curls -->
+                        <h4 class="section-heading"><span>Alternative Dumbbell Curls</span></h4>
+                        <div class="gif-container">
+                            <img src="https://i.pinimg.com/originals/5d/08/f7/5d08f7c3fb0350f7eef570430d69e66e.gif" alt="Alternative Dumbbell Curls GIF">
+                            <p>Alternating dumbbell curls, perform one arm at a time. Keep your elbows close to your body and focus on controlled movements.</p>
+                        </div>
+
+                        <!-- Barbell Rows -->
+                        <h4 class="section-heading"><span>Barbell Rows</span></h4>
+                        <div class="gif-container">
+                            <img src="https://i.pinimg.com/originals/ab/eb/19/abeb19a089f9164e58a81e518821d855.gif" alt="Barbell Rows Exercise GIF">
+                            <p>With a barbell, bend over slightly at the waist and pull the barbell towards your lower chest while keeping your back flat.</p>
+                        </div>
+
+                        <!-- Tricep Dips -->
+                        <h4 class="section-heading"><span>Tricep Dips</span></h4>
+                        <div class="gif-container">
+                            <img src="https://i.pinimg.com/originals/14/b7/25/14b7259ee9f408ec53915a5fac3c64df.gif" alt="Tricep Dips Exercise GIF">
+                            <p>Place your hands on a bench behind you and lower your body by bending your elbows. Push back up to the starting position.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 3: Recovery Tips -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        <i class="fas fa-bed"></i> Rest & Recovery
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#helpAccordion">
+                    <div class="accordion-body">
+                        <p>Rest and recovery are just as important as your workouts. Here are some tips:</p>
+                        <ul>
+                            <li><strong>Get Enough Sleep:</strong> Aim for 7-9 hours of quality sleep each night.</li>
+                            <li><strong>Active Recovery:</strong> Light walking, swimming, or cycling helps maintain blood flow to muscles.</li>
+                            <li><strong>Stretch Regularly:</strong> Stretching improves flexibility and helps muscle recovery.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <a href="HOME.html" class="btn-back">Back to Home</a>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,324 @@
+<?php
+session_start();
+
+// Check if user is logged in, otherwise redirect to login
+if (!isset($_SESSION['user_id'])) {
+    // If not logged in, redirect to login page
+    header('Location: login.php');
+    exit();
+}
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Personalized Gym Trainer</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom, #2c3e50, #34495e);
+            color: #fff;
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            background-color: #2c3e50;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            font-size: 1.6rem;
+            font-weight: bold;
+        }
+
+        .navbar-brand .logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            margin-right: 10px;
+        }
+
+        .navbar .form-control {
+            border-radius: 30px;
+        }
+
+        .navbar .btn-outline-light {
+            border-radius: 30px;
+        }
+
+        .dropdown-menu {
+            background-color: #34495e;
+            border-radius: 10px;
+        }
+
+        .dropdown-item:hover {
+            background-color: #16a085;
+        }
+
+        .title {
+            text-align: center;
+            margin: 40px 0;
+            font-size: 3rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #ecf0f1;
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap; /* Allows cards to wrap into multiple rows */
+            justify-content: space-between; /* Distributes cards evenly */
+            gap: 50px;
+            margin-top: 10px;
+            justify-items: center; /* Center each card within the grid */
+        }
+
+        .card {
+            background-color: #1c2833;
+            color: #fff;
+            width: 150%; /* Ensures 4 cards fit in one line */
+            max-width: 250px;
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 15px 15px 0 0;
+        }
+
+        .card-title {
+            margin-top: 12px;
+            font-size: 1.4rem;
+            font-weight: bold;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            background-color: #34495e;
+        }
+
+        .workout-log-card,
+        .fitness-plan-card {
+            display: block;
+            margin: 30px auto;
+            max-width: 280px;
+            background-color: #16a085;
+            padding: 12px 20px;
+            border-radius: 15px;
+            text-align: center;
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .workout-log-card:hover {
+            background-color: #1abc9c;
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-bmi {
+            display: block;
+            margin: 30px auto;
+            max-width: 280px;
+            background-color: #16a085;
+            padding: 12px 20px;
+            border-radius: 15px;
+            text-align: center;
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn-bmi:hover {
+            background-color: #1abc9c;
+            transform: scale(1.05);
+        }
+
+        .meal-planner-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .btn-custom {
+            display: block;
+            margin: 30px auto;
+            max-width: 280px;
+            background-color: #16a085;
+            padding: 12px 20px;
+            border-radius: 15px;
+            text-align: center;
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn-custom:hover {
+            background-color: #1abc9c;
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #1c2833;">
+    <div class="container-fluid">
+        <!-- Logo and Brand -->
+        <a class="navbar-brand" href="#">
+            <img src="images/icon.jpg" alt="Logo" class="logo" style="max-width: 60px; border-radius: 10px;">
+            <span style="font-size: 1.6rem; font-weight: bold;">Stride Sync</span>
+        </a>
+
+        <!-- Navbar Toggle for Small Screens -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar Links and Profile Dropdown -->
+        <div class="collapse navbar-collapse" id="navbarContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+                <!-- 🆕 Dashboard Link -->
+                 <li class="nav-item">
+                    <a class="nav-link" href="achievements.php">Achievements</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="dashboard.php">Dashboard</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="help.html">Help</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.php">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.php">Contact</a>
+                </li>
+
+                <!-- Profile Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="images/9027486_user_icon.png" alt="Profile" class="rounded-circle" style="width: 40px; height: 40px;">
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+                        <li><a class="dropdown-item" href="profile.php">View Profile</a></li>
+                        <li><a href="logout.php" class="dropdown-item text-danger">Logout</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<!-- Main content -->
+<div class="container">
+    <h1 class="title">Personalized Gym Trainer</h1>
+
+    <!-- Cards Section -->
+    <div class="card-container">
+        <!-- Exercise Tracking Card -->
+        <a href="http://127.0.0.1:5000/">
+            <div class="card">
+                <div class="card-body text-center">
+                    <img src="images/exerciseicon.jpg" alt="Exercise Icon">
+                    <h5 class="card-title">Track Your Exercise</h5>
+                </div>
+            </div>
+        </a>
+
+        <!-- for moblie-->
+        <!-- <a href="http://172.17.2.106:5000/" target="_blank">
+            <div class="card">
+                <div class="card-body text-center">
+                    <img src="images/exerciseicon.jpg" alt="Exercise Icon">
+                    <h5 class="card-title">Track Your Exercise</h5>
+                </div>
+            </div>
+        </a> -->
+
+        <!-- Personalized Fitness Plan Suggestion -->
+        <a href="personalized_plan.php">
+            <div class="card">
+                <div class="card-body text-center">
+                    <img src="images/personalicon.jpg" alt="Fitness Plan Icon">
+                    <h5 class="card-title">Personalized Plan</h5>
+                </div>
+            </div>
+        </a>
+
+        <a href="Meal_Planner.php">
+            <div class="card">
+                <div class="card-body text-center">
+                    <img src="images/mealrec.jpg" alt="Fitness Plan Icon">
+                    <h5 class="card-title">Meal Planner</h5>
+                </div>
+            </div>
+        </a>
+
+        <!-- Food Tracking Card -->
+        <a href="http://127.0.0.1:5001/">
+            <div class="card">
+                <div class="card-body text-center">
+                    <img src="images/foodcompimg.jpg" alt="Food Icon">
+                    <h5 class="card-title">Track Your Food</h5>
+                </div>
+            </div>
+        </a>
+
+        <!-- Meal Planner -->
+        
+    </div>
+
+    <!-- Workout Logs Section -->
+    <a href="workout_logs.php">
+        <div class="workout-log-card">
+            <h5>Workout Logs</h5>
+        </div>
+    </a>
+    
+    <a href="fitness_plan.php">
+        <div class="fitness-plan-card">
+            <h5>Fitness Plan</h5>
+        </div>
+    </a>
+    
+    <!-- BMI Calculator Button -->
+    <div class="text-center">
+        <a href="BMI.html" class="btn btn-bmi">Body Metrices</a>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
